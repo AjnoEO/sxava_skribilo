@@ -1,0 +1,202 @@
+{
+	"Unikodo": {
+		"a": "𐑨",
+		"b": "𐑚",
+		"c": "𐑔",
+		"ĉ": "𐑗",
+		"d": "𐑛",
+		"e": "𐑧",
+		"f": "𐑓",
+		"g": "𐑜",
+		"ĝ": "𐑡",
+		"h": "𐑣",
+		"ĥ": "𐑙",
+		"i": "𐑦",
+		"j": "𐑢",
+		"ĵ": "𐑠",
+		"k": "𐑒",
+		"l": "𐑤",
+		"m": "𐑫",
+		"n": "𐑵",
+		"o": "𐑩",
+		"p": "𐑐",
+		"r": "𐑮",
+		"s": "𐑕",
+		"ŝ": "𐑖",
+		"t": "𐑑",
+		"u": "𐑪",
+		"ŭ": "𐑘",
+		"v": "𐑝",
+		"z": "𐑟"
+	},
+	"Baroj": {
+		"a": {
+			"Maldekstre": [3],
+			"Dekstre": [2, 3]
+		},
+		"b": {
+			"Maldekstre": [2, 3, 4],
+			"Dekstre": [4]
+		},
+		"c": {
+			"Maldekstre": [1, 2, 3],
+			"Dekstre": [2, 3]
+		},
+		"ĉ": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [1, 3]
+		},
+		"d": {
+			"Maldekstre": [2, 3, 4],
+			"Dekstre": [3]
+		},
+		"e": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [3]
+		},
+		"f": {
+			"Maldekstre": [3],
+			"Dekstre": [1, 2, 3]
+		},
+		"g": {
+			"Maldekstre": [2, 3, 4],
+			"Dekstre": [2, 3]
+		},
+		"ĝ": {
+			"Maldekstre": [2, 4],
+			"Dekstre": [2, 3]
+		},
+		"h": {
+			"Maldekstre": [2, 3, 4],
+			"Dekstre": [2, 3, 4]
+		},
+		"ĥ": {
+			"Maldekstre": [1, 2, 3],
+			"Dekstre": [1, 2, 3]
+		},
+		"i": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2, 3]
+		},
+		"j": {
+			"Maldekstre": [4],
+			"Dekstre": [2]
+		},
+		"ĵ": {
+			"Maldekstre": [2, 4],
+			"Dekstre": [2, 3]
+		},
+		"k": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [1, 2, 3]
+		},
+		"l": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2, 3]
+		},
+		"m": {
+			"Maldekstre": [2],
+			"Dekstre": [2]
+		},
+		"n": {
+			"Maldekstre": [3],
+			"Dekstre": [3]
+		},
+		"o": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2]
+		},
+		"p": {
+			"Maldekstre": [1],
+			"Dekstre": [1, 2, 3]
+		},
+		"r": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2, 3]
+		},
+		"s": {
+			"Maldekstre": [1, 2, 3],
+			"Dekstre": [1, 2, 3]
+		},
+		"ŝ": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [1, 3]
+		},
+		"t": {
+			"Maldekstre": [2],
+			"Dekstre": [1, 2, 3]
+		},
+		"u": {
+			"Maldekstre": [2],
+			"Dekstre": [2, 3]
+		},
+		"ŭ": {
+			"Maldekstre": [1],
+			"Dekstre": [3]
+		},
+		"v": {
+			"Maldekstre": [2, 3, 4],
+			"Dekstre": [2]
+		},
+		"z": {
+			"Maldekstre": [2, 3, 4],
+			"Dekstre": [2, 3, 4]
+		},
+		"as": {
+			"Maldekstre": [3],
+			"Dekstre": [2]
+		},
+		"es": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [3]
+		},
+		"is": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [3]
+		},
+		"os": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2]
+		},
+		"us": {
+			"Maldekstre": [2],
+			"Dekstre": [3]
+		},
+		"on": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2]
+		},
+		"oj": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2]
+		},
+		"ojn": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2, 4]
+		},
+		"an": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2, 3]
+		},
+		"aj": {
+			"Maldekstre": [3],
+			"Dekstre": [2]
+		},
+		"ajn": {
+			"Maldekstre": [3],
+			"Dekstre": [2, 4]
+		},
+		"aŭ": {
+			"Maldekstre": [3],
+			"Dekstre": [4]
+		},
+		"la": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2, 3]
+		},
+		"kaj": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2]
+		}
+	}
+}

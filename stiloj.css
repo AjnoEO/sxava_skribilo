@@ -1,0 +1,85 @@
+:root[aspekto="hela"] {
+	--koloro_teksta: #1a1108;
+	--koloro_fona: #fcf8f5;
+	--koloro_unuagrada: #fc8c31;
+	--koloro_duagrada: #b2e198;
+	--koloro_emfaza: #72d577;
+}
+
+:root[aspekto="malhela"] {
+	--koloro_teksta: #f7ede4;
+	--koloro_fona: #0c0704;
+	--koloro_unuagrada: #ce5e03;
+	--koloro_duagrada: #37671e;
+	--koloro_emfaza: #2a8d2f;
+}
+
+body {
+	font-family: 'Kumbh Sans', sans-serif;
+	font-weight: 400;
+	color: var(--koloro_teksta);
+	background-color: var(--koloro_fona);
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Kumbh Sans', sans-serif;
+	font-weight: 700;
+	color: var(--koloro_teksta);
+}
+
+html {
+	font-size: 100%;
+	/* 16px */
+}
+
+h1 {
+	font-size: 5.652rem;
+	/* 90.4px */
+	color: var(--koloro_unuagrada);
+	text-align: center;
+}
+
+h2 {
+	font-size: 3.997rem;
+	/* 64px */
+}
+
+h3 {
+	font-size: 2.827rem;
+	/* 45.28px */
+}
+
+h4 {
+	font-size: 1.999rem;
+	/* 32px */
+}
+
+h5 {
+	font-size: 1.414rem;
+	/* 22.56px */
+}
+
+small {
+	font-size: 0.707rem;
+	/* 11.36px */
+}
+
+button {
+	display: block;
+	font-family: 'Kumbh Sans', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	color: var(--koloro_teksta);
+	background-color: var(--koloro_unuagrada);
+	border: 1px solid var(--koloro_teksta);
+	border-radius: 0.5rem;
+	margin: 1em;
+}
+
+.centro, .programo {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	margin: 0 auto;
+}
