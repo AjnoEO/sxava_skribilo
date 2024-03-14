@@ -39,13 +39,13 @@ with open("datumoj.json", mode="r", encoding="utf-8") as dosiero:
 	BARARO = datumoj['Baroj']
 	LITERARO = list(BARARO) + [" "]
 
+print("Entajpu la konvertendan tekston")
 konvertota = input()
+konvertota = konvertota.lower()
 rezulto = ''
 for simb in konvertota:
 	rezulto += UNIKODO[simb] if simb in UNIKODO else simb
 print(rezulto)
-
-konvertota = konvertota.lower()
 
 tekstobildo = Image.new("RGBA", (FORIGENDA_INTERSPACO, TEKSTOALTO))
 baroj = PLENBARO
@@ -63,4 +63,4 @@ print("Koloro")
 koloro = input()
 kolorbildo = Image.new("RGB", tekstobildo.size, koloro)
 tekstobildo = Image.merge("RGBA", (kolorbildo.getchannel("R"), kolorbildo.getchannel("G"), kolorbildo.getchannel("B"), tekstobildo.getchannel("A")))
-tekstobildo.save(konvertota.replace(" ", "_") + ".png")
+tekstobildo.save("rezultoj/" + konvertota.replace(" ", "_") + ".png")
