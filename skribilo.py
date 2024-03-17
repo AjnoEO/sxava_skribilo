@@ -1,4 +1,6 @@
-from PIL import Image, ImageChops
+from PIL import Image
+import os
+from pathlib import Path
 import json
 #from functools import lru_cache
 
@@ -63,4 +65,6 @@ print("Koloro")
 koloro = input()
 kolorbildo = Image.new("RGB", tekstobildo.size, koloro)
 tekstobildo = Image.merge("RGBA", (kolorbildo.getchannel("R"), kolorbildo.getchannel("G"), kolorbildo.getchannel("B"), tekstobildo.getchannel("A")))
-tekstobildo.save("rezultoj/" + konvertota.replace(" ", "_") + ".png")
+dosierujo = os.getcwd() + "/rezultoj"
+Path(dosierujo).mkdir(parents=True, exist_ok=True)
+tekstobildo.save(dosierujo + "/" + konvertota.replace(" ", "_") + ".png")
