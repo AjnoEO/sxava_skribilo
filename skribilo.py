@@ -65,6 +65,7 @@ print("Koloro")
 koloro = input()
 kolorbildo = Image.new("RGB", tekstobildo.size, koloro)
 tekstobildo = Image.merge("RGBA", (kolorbildo.getchannel("R"), kolorbildo.getchannel("G"), kolorbildo.getchannel("B"), tekstobildo.getchannel("A")))
-dosierujo = os.getcwd() + "/rezultoj"
+#dosierujo = os.getcwd() + "/rezultoj"
+dosierujo = "/rezultoj"
 Path(dosierujo).mkdir(parents=True, exist_ok=True)
 tekstobildo.save(dosierujo + "/" + konvertota.replace(" ", "_") + ".png")
