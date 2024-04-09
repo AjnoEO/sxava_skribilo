@@ -12,7 +12,7 @@ PLENBARO = [1, 2, 3, 4]
 PLEJ_LONGA_KOMBINAĴO = 3
 
 def leterbildo(letero: str):
-	return Image.open("literoj/" + letero + ".png")
+	return Image.open("literoj/" + letero + ".svg")
 
 def komunaj_elementoj(listo1, listo2):
 	for el in listo1:
@@ -66,6 +66,6 @@ koloro = input()
 kolorbildo = Image.new("RGB", tekstobildo.size, koloro)
 tekstobildo = Image.merge("RGBA", (kolorbildo.getchannel("R"), kolorbildo.getchannel("G"), kolorbildo.getchannel("B"), tekstobildo.getchannel("A")))
 #dosierujo = os.getcwd() + "/rezultoj"
-dosierujo = "/rezultoj"
+dosierujo = "rezultoj"
 Path(dosierujo).mkdir(parents=True, exist_ok=True)
 tekstobildo.save(dosierujo + "/" + konvertota.replace(" ", "_") + ".png")
