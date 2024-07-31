@@ -32,6 +32,10 @@
 		"on": "𐑳"
 	},
 	"Baroj": {
+		"-": {
+			"Maldekstre": [2, 3],
+			"Dekstre": [2, 3]
+		},
 		"a": {
 			"Maldekstre": [3],
 			"Dekstre": [2, 3]
