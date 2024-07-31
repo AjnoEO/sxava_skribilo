@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="26.672"
+   height="109.734"
+   viewBox="0 -76.617 26.672 109.734"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="un.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="7.0807589"
+     inkscape:cx="13.275413"
+     inkscape:cy="54.867001"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <symbol
+     id="seguihis_517"
+     width="6.117"
+     height="27.434"
+     viewBox="0 -19.154 6.117 27.434">
+    <path
+       d="M 2.859 -5.848 L 2.859 -5.848 Q 3.287 -5.848 3.753 -5.874 Q 4.219 -5.9 4.655 -5.944 Q 5.092 -5.988 5.455 -6.038 Q 5.818 -6.088 6.041 -6.141 Q 6.059 -5.994 6.073 -5.883 Q 6.088 -5.771 6.097 -5.666 Q 6.105 -5.561 6.111 -5.455 Q 6.117 -5.35 6.117 -5.221 Q 6.117 -4.242 5.912 -3.466 Q 5.707 -2.689 5.364 -2.095 Q 5.021 -1.5 4.573 -1.075 Q 4.125 -0.65 3.642 -0.381 Q 3.158 -0.111 2.675 0.015 Q 2.191 0.141 1.77 0.141 L 1.77 -0.68 Q 1.992 -0.68 2.329 -0.776 Q 2.666 -0.873 3.038 -1.084 Q 3.41 -1.295 3.785 -1.626 Q 4.16 -1.957 4.459 -2.42 Q 4.758 -2.883 4.945 -3.492 Q 5.133 -4.102 5.133 -4.863 Q 5.133 -4.904 5.13 -4.963 Q 5.127 -5.021 5.127 -5.074 Q 5.121 -5.139 5.121 -5.203 Q 4.811 -5.15 4.447 -5.115 Q 4.131 -5.08 3.709 -5.054 Q 3.287 -5.027 2.801 -5.027 Q 2.314 -5.027 1.896 -5.071 Q 1.477 -5.115 1.16 -5.174 Q 0.791 -5.238 0.48 -5.32 L 0.48 -6.141 Q 0.797 -6.059 1.178 -5.994 Q 1.506 -5.936 1.934 -5.892 Q 2.361 -5.848 2.859 -5.848 Z "
+       id="path1" />
+  </symbol>
+  <g
+     transform="matrix(1,0,0,-1,0,-24.002)"
+     id="g1">
+    <use
+       href="#seguihis_517"
+       transform="matrix(4,0,0,4,0,-76.617)"
+       id="use1" />
+  </g>
+</svg>

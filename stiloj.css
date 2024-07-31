@@ -37,6 +37,7 @@ h1 {
 	/* 90.4px */
 	color: var(--koloro_unuagrada);
 	text-align: center;
+	margin-block: 0em;
 }
 
 h2 {
@@ -64,16 +65,28 @@ small {
 	/* 11.36px */
 }
 
-button {
-	display: block;
+input, select, button, .rezulto {
+	margin: 1rem;
 	font-family: 'Kumbh Sans', sans-serif;
 	font-weight: 400;
-	font-size: 1rem;
 	color: var(--koloro_teksta);
-	background-color: var(--koloro_unuagrada);
-	border: 1px solid var(--koloro_teksta);
+}
+
+input, select {
+	font-size: 1rem;
+	border: 0.1rem solid var(--koloro_teksta);
+}
+
+input {
+	width: 35rem;
+}
+
+button {
+	font-size: 2rem;
+	display: block;
+	background-color: var(--koloro_duagrada);
+	border: 0.15rem solid var(--koloro_teksta);
 	border-radius: 0.5rem;
-	margin: 1em;
 }
 
 .centro, .programo {

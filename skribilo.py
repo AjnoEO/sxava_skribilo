@@ -1,18 +1,26 @@
 from PIL import Image
-import os
 from pathlib import Path
 import json
 #from functools import lru_cache
 
-TEKSTOALTO = 80
-SPACETLARĜO = 20
-FORIGENDA_INTERSPACO = 5
-LETERA_INTERPSPACO = 10
+with open("datumoj.json", mode="r", encoding="utf-8") as dosiero:
+	datumoj = json.load(dosiero)
+	UNIKODO = datumoj['Unikodo']
+	BARARO = datumoj['Baroj']
+	LITERARO = list(BARARO) + [" "]
+
+with open("koloroj.json", mode="r", encoding="utf-8") as dosiero:
+	KOLOROJ = json.load(dosiero)
+
+TEKSTOALTO = 360
+SPACETLARĜO = 70
+FORIGENDA_INTERSPACO = 0
+LETERA_INTERPSPACO = 25
 PLENBARO = [1, 2, 3, 4]
-PLEJ_LONGA_KOMBINAĴO = 3
+PLEJ_LONGA_KOMBINAĴO = max(map(len, LITERARO))
 
 def leterbildo(letero: str):
-	return Image.open("literoj/" + letero + ".svg")
+	return Image.open("literoj/" + letero + ".png")
 
 def komunaj_elementoj(listo1, listo2):
 	for el in listo1:
@@ -35,15 +43,8 @@ def aldoni(tekstobildo, baroj, nova_litero: str):
 	nova_bildo.alpha_composite(novlitera_bildo, dest=(nova_larĝo - novlitera_bildo.size[0], 0))
 	return (nova_bildo, novliteraj_baroj["Dekstre"])
 
-with open("datumoj.json", mode="r", encoding="utf-8") as dosiero:
-	datumoj = json.load(dosiero)
-	UNIKODO = datumoj['Unikodo']
-	BARARO = datumoj['Baroj']
-	LITERARO = list(BARARO) + [" "]
-
 print("Entajpu la konvertendan tekston")
-konvertota = input()
-konvertota = konvertota.lower()
+konvertota = input().lower()
 rezulto = ''
 for simb in konvertota:
 	rezulto += UNIKODO[simb] if simb in UNIKODO else simb
@@ -51,21 +52,24 @@ print(rezulto)
 
 tekstobildo = Image.new("RGBA", (FORIGENDA_INTERSPACO, TEKSTOALTO))
 baroj = PLENBARO
-i = 0
-while i < len(konvertota):
+simboloj = list(konvertota)
+i = len(simboloj)
+while i > 0:
 	for kombinaĵlongo in range(PLEJ_LONGA_KOMBINAĴO, -1, -1):
-		if i + kombinaĵlongo > len(konvertota): continue
+		if i - kombinaĵlongo < 0: continue
 		if kombinaĵlongo == 0:
-			raise ValueError("Nekonvertebla simbolo: «" + konvertota[i] + "»")
-		if konvertota[i : i + kombinaĵlongo] in LITERARO:
-			tekstobildo, baroj = aldoni(tekstobildo, baroj, konvertota[i : i + kombinaĵlongo])
-			i += kombinaĵlongo
+			raise ValueError("Nekonvertebla simbolo: «" + konvertota[i - 1] + "»")
+		if "".join(simboloj[i - kombinaĵlongo : i]) in LITERARO:
+			simboloj = simboloj[:i - kombinaĵlongo] + ["".join(simboloj[i - kombinaĵlongo : i])] + simboloj[i:]
+			i = i - kombinaĵlongo
 			break
+for simb in simboloj:
+	tekstobildo, baroj = aldoni(tekstobildo, baroj, simb)
 print("Koloro")
-koloro = input()
+koloro = input().lower()
+if koloro in KOLOROJ or (koloro[-1] == 'o' and koloro[:-1] + 'a' in KOLOROJ): koloro = KOLOROJ[koloro[:-1] + 'a']
 kolorbildo = Image.new("RGB", tekstobildo.size, koloro)
 tekstobildo = Image.merge("RGBA", (kolorbildo.getchannel("R"), kolorbildo.getchannel("G"), kolorbildo.getchannel("B"), tekstobildo.getchannel("A")))
-#dosierujo = os.getcwd() + "/rezultoj"
 dosierujo = "rezultoj"
 Path(dosierujo).mkdir(parents=True, exist_ok=True)
 tekstobildo.save(dosierujo + "/" + konvertota.replace(" ", "_") + ".png")

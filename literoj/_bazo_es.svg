@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="25.617"
+   height="109.734"
+   viewBox="0 -76.617 25.617 109.734"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="_bazo_es.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="10.013705"
+     inkscape:cx="11.883713"
+     inkscape:cy="52.977393"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <symbol
+     id="seguihis_506"
+     width="5.924"
+     height="27.434"
+     viewBox="0 -19.154 5.924 27.434">
+    <path
+       d="M 1.512 -6 L 1.512 -6 Q 1.512 -5.432 1.556 -4.816 Q 1.6 -4.201 1.723 -3.609 Q 1.846 -3.018 2.062 -2.487 Q 2.279 -1.957 2.619 -1.556 Q 2.959 -1.154 3.439 -0.917 Q 3.92 -0.68 4.576 -0.68 Q 4.875 -0.68 5.121 -0.709 Q 5.367 -0.738 5.549 -0.773 Q 5.76 -0.814 5.924 -0.873 L 5.924 -0.064 Q 5.689 -0.012 5.534 0.026 Q 5.379 0.064 5.229 0.091 Q 5.08 0.117 4.904 0.129 Q 4.729 0.141 4.465 0.141 Q 3.639 0.141 3.029 -0.135 Q 2.42 -0.41 1.983 -0.876 Q 1.547 -1.342 1.269 -1.957 Q 0.99 -2.572 0.832 -3.255 Q 0.674 -3.938 0.612 -4.644 Q 0.551 -5.35 0.551 -6 Z "
+       id="path1" />
+  </symbol>
+  <g
+     transform=""
+     id="g1">
+    <path
+       d="m 1.512,-6 v 0 q 0,0.568 0.044,1.184 0.044,0.615 0.167,1.207 0.123,0.591 0.339,1.122 0.217,0.53 0.557,0.931 0.34,0.402 0.82,0.639 0.481,0.237 1.137,0.237 0.299,0 0.545,-0.029 0.246,-0.029 0.428,-0.064 0.211,-0.041 0.375,-0.1 v 0.809 Q 5.689,-0.012 5.534,0.026 5.379,0.064 5.229,0.091 5.08,0.117 4.904,0.129 4.729,0.141 4.465,0.141 3.639,0.141 3.029,-0.135 2.42,-0.41 1.983,-0.876 1.547,-1.342 1.269,-1.957 0.99,-2.572 0.832,-3.255 0.674,-3.938 0.612,-4.644 0.551,-5.35 0.551,-6 Z"
+       id="path2"
+       inkscape:label="path2"
+       transform="matrix(4,0,0,4,0,-0.001)" />
+    <path
+       style="fill:#000000"
+       d="m 23.696,-3.493 v 3.236 c 0,0 5.277781,-1.8650302 8.222262,-2.4376133 3.1874,-0.619821 5.882067,-0.9731232 10.09908,0.1414071 3.780551,0.9991764 5.512418,2.44672728 5.512418,2.44672728 l 1.729736,-2.76722228 c 0,0 -1.993236,-1.3012135 -4.777766,-2.2486951 -2.960538,-1.0073708 -5.679432,-1.2167741 -8.399925,-1.1969136 -3.013472,0.021999 -5.388282,0.7298594 -7.116908,1.1351707 C 26.68008,-4.6484178 23.696,-3.493 23.696,-3.493 Z"
+       id="path3"
+       sodipodi:nodetypes="ccssccsssc" />
+  </g>
+</svg>
