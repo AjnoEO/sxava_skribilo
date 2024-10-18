@@ -10,12 +10,13 @@ with open("datumoj.json", mode="r", encoding="utf-8") as dosiero:
 	LITERARO = list(BARARO) + [" "]
 
 with open("koloroj.json", mode="r", encoding="utf-8") as dosiero:
-	KOLOROJ = json.load(dosiero)
+	KOLOROJ: dict[str, str] = json.load(dosiero)
 
 TEKSTOALTO = 360
 SPACETLARĜO = 70
 FORIGENDA_INTERSPACO = 0
 LETERA_INTERPSPACO = 25
+LINIA_INTERSPACO = 200
 PLENBARO = [1, 2, 3, 4]
 PLEJ_LONGA_KOMBINAĴO = max(map(len, LITERARO))
 
@@ -43,33 +44,106 @@ def aldoni(tekstobildo, baroj, nova_litero: str):
 	nova_bildo.alpha_composite(novlitera_bildo, dest=(nova_larĝo - novlitera_bildo.size[0], 0))
 	return (nova_bildo, novliteraj_baroj["Dekstre"])
 
-print("Entajpu la konvertendan tekston")
-konvertota = input().lower()
-rezulto = ''
-for simb in konvertota:
-	rezulto += UNIKODO[simb] if simb in UNIKODO else simb
-print(rezulto)
+def unikodigi(teksto: str):
+	teksto = teksto.lower()
+	rezulto = ''
+	for simb in teksto:
+		rezulto += UNIKODO[simb] if simb in UNIKODO else simb
+	return rezulto
 
-tekstobildo = Image.new("RGBA", (FORIGENDA_INTERSPACO, TEKSTOALTO))
-baroj = PLENBARO
-simboloj = list(konvertota)
-i = len(simboloj)
-while i > 0:
-	for kombinaĵlongo in range(PLEJ_LONGA_KOMBINAĴO, -1, -1):
-		if i - kombinaĵlongo < 0: continue
-		if kombinaĵlongo == 0:
-			raise ValueError("Nekonvertebla simbolo: «" + konvertota[i - 1] + "»")
-		if "".join(simboloj[i - kombinaĵlongo : i]) in LITERARO:
-			simboloj = simboloj[:i - kombinaĵlongo] + ["".join(simboloj[i - kombinaĵlongo : i])] + simboloj[i:]
-			i = i - kombinaĵlongo
+def koloro(nomo: str | None = None):
+	if not nomo:
+		return KOLOROJ['nigra']
+	nomo = nomo.lower()
+	if nomo[-1] in {'o', 'a'} and (nomo[:-1] + 'a') in KOLOROJ:
+		return KOLOROJ[nomo[:-1] + 'a']
+	raise Warning(f'Nekonata koloro: {nomo}')
+
+def bildigi(teksto: str, koloro: str, ĝisrandigo: int = 1, larĝolimo: int | None = None):
+	"""
+	ĝisrandigo: maldekstrigi = 0, centrigi = 1, dekstrigi = 2
+	"""
+	teksto = teksto.lower()
+	tekstobildo = Image.new("RGBA", (FORIGENDA_INTERSPACO, TEKSTOALTO))
+	lasta_tekstobildo = None
+	bildaro: list[Image.Image] = []
+	baroj = PLENBARO
+	simboloj = list(teksto)
+	i = len(simboloj)
+	while i > 0:
+		for kombinaĵlongo in range(PLEJ_LONGA_KOMBINAĴO, -1, -1):
+			if i - kombinaĵlongo < 0: continue
+			if kombinaĵlongo == 0:
+				raise ValueError(f"Nekonvertebla simbolo: «{teksto[i - 1]}»")
+			if "".join(simboloj[i - kombinaĵlongo : i]) in LITERARO:
+				simboloj = simboloj[:i - kombinaĵlongo] + ["".join(simboloj[i - kombinaĵlongo : i])] + simboloj[i:]
+				i = i - kombinaĵlongo
+				break
+	i = 0
+	lasta_i = 0
+	while True:
+		if i == len(simboloj):
+			if larĝolimo and tekstobildo.width > larĝolimo and not lasta_tekstobildo:
+				longa_vorto = "".join(simboloj[lasta_i:i])
+				raise OverflowError(f"La larĝo ne estis sufiĉa por la vorto «{longa_vorto}»")
+			bildaro.append(tekstobildo)
 			break
-for simb in simboloj:
-	tekstobildo, baroj = aldoni(tekstobildo, baroj, simb)
-print("Koloro")
-koloro = input().lower()
-if koloro in KOLOROJ or (koloro[-1] == 'o' and koloro[:-1] + 'a' in KOLOROJ): koloro = KOLOROJ[koloro[:-1] + 'a']
-kolorbildo = Image.new("RGB", tekstobildo.size, koloro)
-tekstobildo = Image.merge("RGBA", (kolorbildo.getchannel("R"), kolorbildo.getchannel("G"), kolorbildo.getchannel("B"), tekstobildo.getchannel("A")))
+		simb = simboloj[i]
+		i += 1
+		if i < len(simboloj) and simb != ' ':
+			tekstobildo, baroj = aldoni(tekstobildo, baroj, simb)
+			continue
+		if larĝolimo and tekstobildo.width > larĝolimo:
+			if not lasta_tekstobildo:
+				longa_vorto = "".join(simboloj[lasta_i:i])
+				raise OverflowError(f"La larĝo ne estis sufiĉa por la vorto «{longa_vorto}»")
+			bildaro.append(lasta_tekstobildo)
+			tekstobildo = Image.new("RGBA", (FORIGENDA_INTERSPACO, TEKSTOALTO))
+			baroj = PLENBARO
+			i = lasta_i
+			lasta_tekstobildo = None
+		else:
+			lasta_tekstobildo = tekstobildo
+			tekstobildo, baroj = aldoni(tekstobildo, baroj, simb)
+			lasta_i = i
+	larĝo = max(map(lambda b: b.width, bildaro))
+	alto = TEKSTOALTO * len(bildaro) - LINIA_INTERSPACO * (len(bildaro) - 1)
+	tekstobildo = Image.new("RGBA", (larĝo, alto))
+	for i, bildo in enumerate(bildaro):
+		x = 0 + round((larĝo - bildo.width) * (ĝisrandigo / 2))
+		tekstobildo.alpha_composite(bildo, (x, i*(TEKSTOALTO-LINIA_INTERSPACO)))
+	kolorbildo = Image.new("RGB", tekstobildo.size, koloro)
+	tekstobildo = Image.merge(
+		"RGBA",
+		(kolorbildo.getchannel("R"), kolorbildo.getchannel("G"), kolorbildo.getchannel("B"), tekstobildo.getchannel("A"))
+	)
+	return tekstobildo
+
+print("Entajpu la konvertendan tekston")
+konvertota = input()
+print(unikodigi(konvertota))
+
+print("Agordoj: [koloro=(nigro)] [maldekstrigi|centrigi|dekstrigi] [larĝolimo=(0)]")
+
+kolornomo = koloro()
+ĝisrandigo = 1
+larĝolimo = None
+for agordo in input().split():
+	nomo_valoro = agordo.split('=')
+	nomo, valoro = nomo_valoro[0], nomo_valoro[-1]
+	try:
+		match nomo:
+			case 'koloro': kolornomo = koloro(valoro)
+			case 'maldekstrigi': ĝisrandigo = 0
+			case 'centrigi':     ĝisrandigo = 1
+			case 'dekstrigi':    ĝisrandigo = 2
+			case 'larĝolimo': larĝolimo = int(valoro)
+			case _: raise Warning(f"Nekonata argumento: {nomo}")
+	except Warning as w:
+		print("!!!", w)
+
+tekstobildo = bildigi(konvertota, kolornomo, ĝisrandigo, larĝolimo)
+
 dosierujo = "rezultoj"
 Path(dosierujo).mkdir(parents=True, exist_ok=True)
 tekstobildo.save(dosierujo + "/" + konvertota.replace(" ", "_") + ".png")
